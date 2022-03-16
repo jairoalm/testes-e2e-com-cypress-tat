@@ -21,6 +21,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
 
     cy.deleteNote(updatedNoteDescription)
     cy.wait('@getNotes')
+    
   })
 
   it('successfully submits the form', () => {
