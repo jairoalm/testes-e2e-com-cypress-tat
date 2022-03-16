@@ -21,7 +21,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
 
     cy.deleteNote(updatedNoteDescription)
     cy.wait('@getNotes')
-    
+
   })
 
   it('successfully submits the form', () => {
@@ -34,7 +34,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
       expect(response.state).to.equal('Complete')
     })
   })
-  
+
   it('logs out', () => {
     cy.visit('/')
     cy.wait('@getNotes')
@@ -44,10 +44,9 @@ describe('Scenarios where authentication is a pre-requirement', () => {
         .should('be.visible')
         .click()
     }
-    
     cy.get('.nav > :nth-child(2) > a').click()
     cy.get('#email').should('be.visible')
-    
+
   })
 
 })
