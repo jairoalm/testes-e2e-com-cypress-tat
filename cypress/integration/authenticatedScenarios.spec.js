@@ -1,4 +1,3 @@
-// authenticatedScenarios.spec.js
 
 describe('Scenarios where authentication is a pre-requirement', () => {
   beforeEach(() => {
@@ -6,7 +5,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
     cy.login()
   })
 
-  it.only('CRUDs a note', () => {
+  it('CRUDs a note', () => {
     const faker = require('faker')
     const noteDescription = faker.lorem.words(4)
 
@@ -35,7 +34,7 @@ describe('Scenarios where authentication is a pre-requirement', () => {
     })
   })
 
-  it('logs out', () => {
+  it('logs out', { tags: '@desktop-and-tablet' }, () => {
     cy.visit('/')
     cy.wait('@getNotes')
 

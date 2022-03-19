@@ -1,12 +1,3 @@
-Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
-  cy.visit('/signup')
-  cy.get('#email').type(email)
-  cy.get('#password').type(password, { log: false })
-  cy.get('#confirmPassword').type(password, { log: false })
-  cy.contains('button', 'Signup').click()
-  cy.get('#confirmationCode').should('be.visible')
-})
-
 // cypress/support/commands.js
 
 // ... Comando de signup aqui
@@ -97,4 +88,13 @@ Cypress.Commands.add('fillSettingsFormAndSubmit', () => {
     .find('[name="postal"]')
     .type('12345')
   cy.contains('button', 'Purchase').click()
+})
+
+Cypress.Commands.add('fillSignupFormAndSubmit', (email, password) => {
+  cy.visit('/signup')
+  cy.get('#email').type(email)
+  cy.get('#password').type(password, { log: false })
+  cy.get('#confirmPassword').type(password, { log: false })
+  cy.contains('button', 'Signup').click()
+  cy.get('#confirmationCode').should('be.visible')
 })
